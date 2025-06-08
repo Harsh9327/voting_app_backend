@@ -16,7 +16,7 @@ const checkAdminRole = async (userID) => {
  }
 
 // post route for add candidate
-router.post('/', jwtAuthMiddleware, async (req, res) =>{
+router.post('/add-candidate', jwtAuthMiddleware, async (req, res) =>{
     try{
         if(!(await checkAdminRole(req.user.id)))
             return res.status(403).json({message: 'user does not have admin role'});
